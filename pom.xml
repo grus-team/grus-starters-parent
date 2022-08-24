@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <groupId>com.mindglean.framework</groupId>
+    <artifactId>grus-starters-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+
+    <modules>
+        <module>grus-starter-core</module>
+        <module>grus-starter-web</module>
+    </modules>
+
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.6</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <!--  core versions  -->
+        <grus-starter.version>1.0.0-SNAPSHOT</grus-starter.version>
+        <java.version>1.8</java.version>
+        <!--  若变更Spring Boot版本, 上面parent依赖版本也要变  -->
+        <spring-boot.version>2.6.6</spring-boot.version>
+        <!--  Spring Cloud versions  -->
+        <!--  https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies  -->
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+
+        <spring-cloud-starter-loadbalancer.version>3.0.3</spring-cloud-starter-loadbalancer.version>
+        <spring-cloud-starter-bootstrap.version>3.0.3</spring-cloud-starter-bootstrap.version>
+        <spring-cloud-starter-sleuth.version>3.1.1</spring-cloud-starter-sleuth.version>
+        <!--  Spring Cloud Alibaba versions  -->
+        <nacos-client.vesion>1.4.1</nacos-client.vesion>
+        <!--  3rd-party versions  -->
+        <hutool.version>5.7.20</hutool.version>
+        <transmittable-thread-local.version>2.12.1</transmittable-thread-local.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
+        <tk.mybatis.version>4.0.0</tk.mybatis.version>
+        <dynamic-ds.version>3.4.1</dynamic-ds.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <redisson.version>3.16.7</redisson.version>
+        <aspectj.version>1.9.6</aspectj.version>
+        <ons-client.version>1.8.8.1.Final</ons-client.version>
+        <!--  DB Driver versions  -->
+        <mysql.version>8.0.23</mysql.version>
+        <postgresql.version>42.2.19</postgresql.version>
+        <!--  Maven properties  -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.version>3.6.3</maven.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <buildTime>v.${project.version} build ${maven.build.timestamp.format}</buildTime>
+        <main.user.dir>${basedir}/..</main.user.dir>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+
+        <!--Jar依赖版本-->
+        <springboot.kafka.version>2.8.0</springboot.kafka.version>
+        <springboot.mybatis.version>2.2.0</springboot.mybatis.version>
+        <github.pagehelper>1.4.2</github.pagehelper>
+        <hutool.all.version>5.6.2</hutool.all.version>
+        <elasticsearch.version>7.15.2</elasticsearch.version>
+        <minio.version>8.2.2</minio.version>
+        <xxl-job.version>2.2.0</xxl-job.version>
+        <lombok.version>1.18.12</lombok.version>
+        <guava.version>30.1.1-jre</guava.version>
+        <spring.plugin.core.version>2.0.0.RELEASE</spring.plugin.core.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--  dependencyManagement  -->
+    <dependencyManagement>
+        <dependencies>
+            <!--  sub starters  -->
+            <dependency>
+                <groupId>com.mindglean.framework</groupId>
+                <artifactId>grus-starter-core</artifactId>
+                <version>${grus-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mindglean.framework</groupId>
+                <artifactId>grus-starter-web</artifactId>
+                <version>${grus-starter.version}</version>
+            </dependency>
+
+            <!--  CORE dependencies  -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!--  AOP dependencies  -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <!--  CLOUD dependencies  -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud-starter-bootstrap.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-sleuth</artifactId>
+                <version>${spring-cloud-starter-sleuth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.nacos</groupId>
+                        <artifactId>nacos-client</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.nacos</groupId>
+                        <artifactId>nacos-client</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos-client.vesion}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-lang</groupId>
+                        <artifactId>commons-lang</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--  CRUD dependencies  -->
+            <!--  常用数据库驱动  -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-ds.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--  KNIFE4J dependencies  -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-annotations</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!--            <dependency>
+                            <groupId>com.github.xiaoymin</groupId>
+                            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                            <version>${knife4j.version}</version>
+                        </dependency>-->
+            <!--  REDIS dependencies  -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-actuator</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--分页插件 page helper-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${github.pagehelper}</version>
+            </dependency>
+            <!--mybatis整合spring boot依赖-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${springboot.mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-core</artifactId>
+                <version>${spring.plugin.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!--  TEST dependencies  -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!--  WEB dependencies  -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!--  Spring Boot & Cloud dependencies  -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
