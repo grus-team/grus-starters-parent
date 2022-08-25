@@ -1,6 +1,5 @@
 package com.mindglean.framework.core.pojo;
 
-import cn.hutool.http.HttpStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -14,21 +13,27 @@ import lombok.Data;
 @Data
 public class ApiResult<T> {
 
+    /**
+     * 成功
+     */
+    private static final Integer SUCCESS = 0;
+
+
     @ApiModelProperty(value = "状态码")
     private Integer code;
 
     @ApiModelProperty(value = "返回消息")
     private String msg;
 
-    @ApiModelProperty(value = "承载数据")
+    @ApiModelProperty(value = "data")
     private T data;
 
     public static <T> ApiResult<T> success() {
-        return build(HttpStatus.HTTP_OK, "success", null);
+        return build(SUCCESS, "success", null);
     }
 
     public static <T> ApiResult<T> success(String msg) {
-        return build(HttpStatus.HTTP_OK, msg, null);
+        return build(SUCCESS, msg, null);
     }
 
     public static <T> ApiResult<T> fail(Integer code, String msg) {
@@ -40,11 +45,11 @@ public class ApiResult<T> {
     }
 
     public static <T> ApiResult<T> data(T data) {
-        return build(HttpStatus.HTTP_OK, "success", data);
+        return build(SUCCESS, "success", data);
     }
 
     public static <T> ApiResult<T> data(String msg, T data) {
-        return build(HttpStatus.HTTP_OK, msg, data);
+        return build(SUCCESS, msg, data);
     }
 
     private static <T> ApiResult<T> build(Integer code, String msg, T data) {
