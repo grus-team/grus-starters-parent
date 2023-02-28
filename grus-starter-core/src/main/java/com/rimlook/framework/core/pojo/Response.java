@@ -28,14 +28,6 @@ public class Response<T> {
     @ApiModelProperty(value = "data")
     private T data;
 
-    public static <T> com.rimlook.framework.core.pojo.Response<T> success() {
-        return build(SUCCESS, "success", null);
-    }
-
-    public static <T> com.rimlook.framework.core.pojo.Response<T> success(String msg) {
-        return build(SUCCESS, msg, null);
-    }
-
     public static <T> com.rimlook.framework.core.pojo.Response<T> fail(Integer code, String msg) {
         return build(code, msg, null);
     }
@@ -44,11 +36,17 @@ public class Response<T> {
         return build(code, msg, data);
     }
 
-    public static <T> com.rimlook.framework.core.pojo.Response<T> data(T data) {
+    public static <T> com.rimlook.framework.core.pojo.Response<T> success(T data) {
         return build(SUCCESS, "success", data);
     }
 
-    public static <T> com.rimlook.framework.core.pojo.Response<T> data(String msg, T data) {
+
+    public static com.rimlook.framework.core.pojo.Response success() {
+        return build(SUCCESS, "success", null);
+    }
+
+
+    public static <T> com.rimlook.framework.core.pojo.Response<T> success(String msg, T data) {
         return build(SUCCESS, msg, data);
     }
 

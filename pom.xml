@@ -39,7 +39,7 @@
         <!--  Spring Cloud Alibaba versions  -->
         <nacos-client.vesion>1.4.1</nacos-client.vesion>
         <!--  3rd-party versions  -->
-        <hutool.version>5.7.20</hutool.version>
+        <hutool.version>5.8.12</hutool.version>
         <transmittable-thread-local.version>2.12.1</transmittable-thread-local.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
@@ -71,7 +71,7 @@
         <elasticsearch.version>7.15.2</elasticsearch.version>
         <minio.version>8.2.2</minio.version>
         <xxl-job.version>2.2.0</xxl-job.version>
-        <lombok.version>1.18.12</lombok.version>
+        <lombok.version>1.18.20</lombok.version>
         <guava.version>30.1.1-jre</guava.version>
         <spring.plugin.core.version>2.0.0.RELEASE</spring.plugin.core.version>
     </properties>

@@ -33,4 +33,10 @@ public class BusinessException extends RuntimeException {
         super(msg);
         this.code = code;
     }
+
+    public BusinessException(String msg, Throwable throwable) {
+        // todo need to resolve this throwable
+        super(msg);
+        this.code = code;
+    }
 }
