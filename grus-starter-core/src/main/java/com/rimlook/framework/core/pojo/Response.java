@@ -1,4 +1,4 @@
-package com.mindglean.framework.core.pojo;
+package com.rimlook.framework.core.pojo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,7 +11,7 @@ import lombok.Data;
  */
 @ApiModel(value = "API请求返回结果")
 @Data
-public class ApiResult<T> {
+public class Response<T> {
 
     /**
      * 成功
@@ -28,32 +28,32 @@ public class ApiResult<T> {
     @ApiModelProperty(value = "data")
     private T data;
 
-    public static <T> ApiResult<T> success() {
+    public static <T> com.rimlook.framework.core.pojo.Response<T> success() {
         return build(SUCCESS, "success", null);
     }
 
-    public static <T> ApiResult<T> success(String msg) {
+    public static <T> com.rimlook.framework.core.pojo.Response<T> success(String msg) {
         return build(SUCCESS, msg, null);
     }
 
-    public static <T> ApiResult<T> fail(Integer code, String msg) {
+    public static <T> com.rimlook.framework.core.pojo.Response<T> fail(Integer code, String msg) {
         return build(code, msg, null);
     }
 
-    public static <T> ApiResult<T> fail(Integer code, String msg, T data) {
+    public static <T> com.rimlook.framework.core.pojo.Response<T> fail(Integer code, String msg, T data) {
         return build(code, msg, data);
     }
 
-    public static <T> ApiResult<T> data(T data) {
+    public static <T> com.rimlook.framework.core.pojo.Response<T> data(T data) {
         return build(SUCCESS, "success", data);
     }
 
-    public static <T> ApiResult<T> data(String msg, T data) {
+    public static <T> com.rimlook.framework.core.pojo.Response<T> data(String msg, T data) {
         return build(SUCCESS, msg, data);
     }
 
-    private static <T> ApiResult<T> build(Integer code, String msg, T data) {
-        ApiResult<T> result = new ApiResult<>();
+    private static <T> com.rimlook.framework.core.pojo.Response<T> build(Integer code, String msg, T data) {
+        com.rimlook.framework.core.pojo.Response<T> result = new com.rimlook.framework.core.pojo.Response<>();
         result.setCode(code);
         result.setMsg(msg);
         result.setData(data);

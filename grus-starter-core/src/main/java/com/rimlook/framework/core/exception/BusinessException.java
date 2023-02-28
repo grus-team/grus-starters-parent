@@ -1,4 +1,4 @@
-package com.mindglean.framework.core.exception;
+package com.rimlook.framework.core.exception;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.mindglean.framework.core.util;
+package com.rimlook.framework.core.util;
 
 
 import cn.hutool.core.util.StrUtil;

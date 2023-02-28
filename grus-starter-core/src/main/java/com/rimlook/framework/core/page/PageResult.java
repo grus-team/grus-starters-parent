@@ -1,4 +1,4 @@
-package com.mindglean.framework.core.page;
+package com.rimlook.framework.core.page;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

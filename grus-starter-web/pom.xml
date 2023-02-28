@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.mindglean.framework</groupId>
+        <groupId>com.rimlook.framework</groupId>
         <artifactId>grus-starters-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.mindglean.framework</groupId>
+            <groupId>com.rimlook.framework</groupId>
             <artifactId>grus-starter-core</artifactId>
         </dependency>
 

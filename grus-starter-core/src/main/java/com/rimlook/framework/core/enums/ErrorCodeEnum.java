@@ -1,4 +1,4 @@
-package com.mindglean.framework.core.enums;
+package com.rimlook.framework.core.enums;
 
 
 /**
