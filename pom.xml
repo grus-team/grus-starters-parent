@@ -12,6 +12,7 @@
     <modules>
         <module>grus-starter-core</module>
         <module>grus-starter-web</module>
+        <module>grus-starter-swagger</module>
     </modules>
 
 
@@ -101,6 +102,14 @@
                 <artifactId>grus-starter-web</artifactId>
                 <version>${grus-starter.version}</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>com.rimlook.framework</groupId>
+                <artifactId>grus-starter-swagger</artifactId>
+                <version>${grus-starter.version}</version>
+            </dependency>
+
 
             <!--  CORE dependencies  -->
             <dependency>
