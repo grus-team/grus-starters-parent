@@ -6,7 +6,7 @@
     <packaging>pom</packaging>
     <groupId>com.rimlook.framework</groupId>
     <artifactId>grus-starters-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
 
     <modules>
@@ -25,7 +25,7 @@
 
     <properties>
         <!--  core versions  -->
-        <grus-starter.version>1.0.0-SNAPSHOT</grus-starter.version>
+        <grus-starter.version>1.0.0</grus-starter.version>
         <java.version>1.8</java.version>
         <!--  若变更Spring Boot版本, 上面parent依赖版本也要变  -->
         <spring-boot.version>2.6.6</spring-boot.version>
